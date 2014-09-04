@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<snippets>
+
+<!--
+  Created by Frescobaldi 2.17-dev.
+  
+  Every snippet is represented by:
+    title:      title text
+    shortcuts:  list of shortcut elements, every shortcut is a key sequence
+    body:       the snippet text
+  
+  The snippet id attribute can be the name of a builtin snippet or a random
+  name like 'n123456'. In the latter case, the title is used to determine
+  whether a snippet is new or updated.
+-->
+
+<snippet id="n062878">
+<title>move-barchecks</title>
+<shortcuts />
+<body>-*- python; indent: no;
+# This snippet places all bar checks at the end of the line.
+lines = text.split('\n')
+bars = []
+for l in lines:
+  if '|' in l:
+    l = l.replace("|", "")
+    l += ' |'
+  bars.append(l)       
+text = '\n'.join(bars)</body>
+</snippet>
+
+</snippets>
