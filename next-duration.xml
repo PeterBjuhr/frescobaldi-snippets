@@ -29,7 +29,7 @@ def main():
   c = lydocument.cursor(cursor)
   runner = lydocument.Runner.at(c, True)
   for token in runner.forward():
-    if isinstance(token, lp.Duration):
+    if isinstance(token, lp.Length):
       cursor.setPosition(runner.position())
       return cursor</body>
 </snippet>
