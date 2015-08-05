@@ -17,7 +17,7 @@
 <snippet id="n208386">
 <title>Next Note</title>
 <shortcuts>
-<shortcut>Alt+Shift+N</shortcut>
+<shortcut>F12</shortcut>
 </shortcuts>
 <body>-*- python; indent: no; menu: music; selection: strip;
 
@@ -27,10 +27,10 @@ import ly.lex.lilypond as lp
 
 def main():
     c = lydocument.cursor(cursor)
-    runner = lydocument.Runner.at(c, True)
+    runner = lydocument.Runner.at(c, True, True)
     for token in runner.forward():
         if isinstance(token, lp.Note):
-            cursor.setPosition(runner.position())
+            cursor.setPosition(token.end)
             return cursor</body>
 </snippet>
 
