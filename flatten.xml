@@ -22,6 +22,7 @@
 <body>-*- python;
 # This snippet adds a flat to the closest note.
 
+import documentinfo
 import lydocument
 import ly.lex.lilypond as lp
 import ly.pitch
