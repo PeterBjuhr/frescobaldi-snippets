@@ -22,13 +22,14 @@
 <body>-*- python;
 # This snippet shifts a note enharmonically.
 
+import documentinfo
 import lydocument
 import ly.lex.lilypond as lp
 import ly.pitch
 
 c = lydocument.cursor(cursor)
 runner = lydocument.Runner.at(c, True, True)
-lang = "nederlands"
+lang = documentinfo.docinfo(cursor.document()).language() or 'nederlands'
 
 forw_token = None
 

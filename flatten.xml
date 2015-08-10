@@ -28,7 +28,7 @@ import ly.pitch
 
 c = lydocument.cursor(cursor)
 runner = lydocument.Runner.at(c, True, True)
-lang = "nederlands"
+lang = documentinfo.docinfo(cursor.document()).language() or 'nederlands'
 
 forw_token = None
 
