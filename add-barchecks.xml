@@ -32,7 +32,7 @@ def main():
     
     with c.document as d:
         for t in source:
-            if isinstance(t, ly.lex.lilypond.MusicItem):
+            if not in_music and isinstance(t, ly.lex.lilypond.MusicItem):
                 in_music = True
             elif isinstance(t, non_enders):
                 in_music = False             
