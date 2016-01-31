@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<snippets>
+
+<!--
+  Created by Frescobaldi 2.18.2.
+  
+  Every snippet is represented by:
+    title:      title text
+    shortcuts:  list of shortcut elements, every shortcut is a key sequence
+    body:       the snippet text
+  
+  The snippet id attribute can be the name of a builtin snippet or a random
+  name like 'n123456'. In the latter case, the title is used to determine
+  whether a snippet is new or updated.
+-->
+
+<snippet id="n605534">
+<title>Substitute pattern</title>
+<shortcuts />
+<body>-*- python; indent: no;
+
+import re
+
+# Change the below to optional pattern and caller name 
+
+subst = "$p1 2 $p2 4 $p3"
+
+caller = "\example"
+
+# The below shouldn't need to be changed
+
+nps = subst.count("p")
+
+esc_call = caller.replace("\\", "\\\\")
+
+prgx = r"([a-x]+(?![A-Za-z])(?:,|')*)"
+
+rgx = r"\s*".join([esc_call] + [prgx] * nps)
+
+rgxsubst = re.sub(r"\$p(\d+)\s*(\d*)", r"\\g&lt;\1&gt;\2", subst)
+
+text = re.sub(rgx, rgxsubst, text)
+
+</body>
+</snippet>
+
+</snippets>
