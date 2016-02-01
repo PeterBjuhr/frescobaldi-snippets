@@ -23,13 +23,13 @@ import re
 
 # Change the below to optional pattern and caller name 
 
-subst = "$p1 2 $p2 4 $p3"
+subst = "$p1 4 $p2 $p3 $p1"
 
 caller = "\example"
 
 # The below shouldn't need to be changed
 
-nps = subst.count("p")
+nps = len(set(re.findall(r"\$p\d+", subst)))
 
 esc_call = caller.replace("\\", "\\\\")
 
@@ -37,10 +37,9 @@ prgx = r"([a-x]+(?![A-Za-z])(?:,|')*)"
 
 rgx = r"\s*".join([esc_call] + [prgx] * nps)
 
-rgxsubst = re.sub(r"\$p(\d+)\s*(\d*)", r"\\g&lt;\1&gt;\2", subst)
+rgxsubst = re.sub(r"\$p(\d+)\s*(\d*)\s*", r"\\g&lt;\1&gt;\2 ", subst)
 
 text = re.sub(rgx, rgxsubst, text)
-
 </body>
 </snippet>
 
